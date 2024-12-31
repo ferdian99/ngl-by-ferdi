@@ -1,9 +1,11 @@
 <template>
-  <Tutorial/>
+  <NGL />
 </template>
 
 <script>
+import NGL from '~/components/NGL.vue'
+
 export default {
-  name: 'IndexPage'
+  components: { NGL }
 }
 </script>

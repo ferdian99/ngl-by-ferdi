@@ -1,69 +1,81 @@
-# ngl-by-ferdi
+# NGL Clone by Ferdi
 
-## Build Setup
+## Halo, selamat datang di NGL Clone ala Ferdi!
+Proyek santai sambil belajar bikin project web SSG (Apa itu? Google aja, deh! :p). 
+Dibikin pake **Nuxt 2** dan **Tailwind CSS**.  
+Intinya, di sini kita bisa bikin form tanya-jawab anonim, kayak NGL beneran.
 
-```bash
-# install dependencies
-$ npm install
+---
 
-# serve with hot reload at localhost:3000
-$ npm run dev
+## Apa Aja Yang Ada di Sini?
+- **Form Anonim**: Orang bisa kirim pertanyaan/pesan secara anonim.
+- **Tombol Dadu**: Kalo males ngetik, tinggal klik dadu buat ngisi pertanyaan random (bahasa Indonesia).
+- **Counter Dinamis**: Ada angka yang terus naik tiap beberapa detik, seolah-olah banyak yang nge-tap tombol.
+- **Halaman Success**: Kalo udah submit, bakal ada halaman “Sent!” lengkap sama tombol balik ke form.
 
-# build for production and launch server
-$ npm run build
-$ npm run start
+---
 
-# generate static project
-$ npm run generate
-```
+## Tech yang Dipake
+- **Nuxt 2**: Buat struktur dan ngejalankan aplikasi.
+- **Tailwind CSS**: Biar styling cepet, ga repot atur CSS.
+- **Axios**: Buat ngirim data (post) ke **Formspark**.
+- **Formspark**: Biar gak perlu bikin backend sendiri.
 
-For detailed explanation on how things work, check out the [documentation](https://nuxtjs.org).
+---
 
-## Special Directories
+## Cara Install
 
-You can create the following extra directories, some of which have special behaviors. Only `pages` is required; you can delete them if you don't want to use their functionality.
+1. **Clone repo**:
+   git clone https://github.com/ferdian99/ngl-by-ferdi.git
 
-### `assets`
+2. **Masuk ke folder**:
+cd ngl-by-ferdi
 
-The assets directory contains your uncompiled assets such as Stylus or Sass files, images, or fonts.
+3. **Install dependencies**:
+npm install
 
-More information about the usage of this directory in [the documentation](https://nuxtjs.org/docs/2.x/directory-structure/assets).
+4. **Jalankan di mode dev**:
+npm run dev
+Buka http://localhost:3000 di browser kamu.
 
-### `components`
+5. **Generate file statis (opsional)**:
+*(Biar ga usah punya node server di hosting)*
+npm run generate
+Nanti hasilnya ada di folder dist/. Boleh juga upload ke Netlify, Vercel, GitHub Pages, dsb. (Kalo aku pake Hostinger)
 
-The components directory contains your Vue.js components. Components make up the different parts of your page and can be reused and imported into your pages, layouts and even other components.
+**Info Struktur folder**:
+.
+├─ pages/
+│   └─ index.vue          # Halaman utama Nuxt, cuma manggil <NGL />
+├─ components/
+│   ├─ NGL.vue            # Komponen induk, nge-switch antara Form & Success
+│   ├─ NGLForm.vue        # Komponen form anonim + dadu + submit
+│   └─ NGLSuccess.vue     # Komponen "Sent!" + counter + tombol balik
+├─ assets/
+│   └─ css/
+│       └─ tailwind.css   # File CSS utama (Tailwind, font, dsb.)
+├─ static/
+│   └─ img/
+│       └─ profile.png    # Gambar profil contoh
+├─ nuxt.config.js
+└─ ...
 
-More information about the usage of this directory in [the documentation](https://nuxtjs.org/docs/2.x/directory-structure/components).
+**Gimana Cara Kerjanya?**
+1. User buka halaman index.vue, yang isinya cuma <NGL />.
+2. NGL.vue cek apakah statusnya success atau belum.
+2a. Kalo belum, munculin <NGLForm />.
+2b. Kalo udah success, munculin <NGLSuccess />.
+3. NGLForm.vue punya form buat ngetik pertanyaan, terus tombol dadu buat bikin pertanyaan random kocak. Kalo axios.post ke endpoint Formspark berhasil, dia emit(onSuccess) ke NGL.vue.
+4. NGLSuccess.vue nunjukin tampilan “Sent!”, punya counter naik tiap detik, plus tombol balik ke form atau "Get your own messages!".
 
-### `layouts`
+**Mau Kustom?**
+- Formspark Endpoint: Ubah URL di NGLForm.vue (baris await axios.post('https://api.formspark.io/…')) ke endpoint Formspark kamu.
+- Desain: Semua styling utama di tailwind.css. Atau bisa edit di komponen Vue sesuai selera.
+- Random Questions: Di NGLForm.vue ada array RANDOM_QUESTIONS. Silakan tambah, kurangi, ganti.
 
-Layouts are a great help when you want to change the look and feel of your Nuxt app, whether you want to include a sidebar or have distinct layouts for mobile and desktop.
+**Kontribusi**
+Silakan fork, main-main, kalo ada ide seru boleh bikin pull request.
+Kalo nemu bug, bikin issue atau DM @haloferdi, ya!
 
-More information about the usage of this directory in [the documentation](https://nuxtjs.org/docs/2.x/directory-structure/layouts).
-
-
-### `pages`
-
-This directory contains your application views and routes. Nuxt will read all the `*.vue` files inside this directory and setup Vue Router automatically.
-
-More information about the usage of this directory in [the documentation](https://nuxtjs.org/docs/2.x/get-started/routing).
-
-### `plugins`
-
-The plugins directory contains JavaScript plugins that you want to run before instantiating the root Vue.js Application. This is the place to add Vue plugins and to inject functions or constants. Every time you need to use `Vue.use()`, you should create a file in `plugins/` and add its path to plugins in `nuxt.config.js`.
-
-More information about the usage of this directory in [the documentation](https://nuxtjs.org/docs/2.x/directory-structure/plugins).
-
-### `static`
-
-This directory contains your static files. Each file inside this directory is mapped to `/`.
-
-Example: `/static/robots.txt` is mapped as `/robots.txt`.
-
-More information about the usage of this directory in [the documentation](https://nuxtjs.org/docs/2.x/directory-structure/static).
-
-### `store`
-
-This directory contains your Vuex store files. Creating a file in this directory automatically activates Vuex.
-
-More information about the usage of this directory in [the documentation](https://nuxtjs.org/docs/2.x/directory-structure/store).
+**Lisensi**
+Bebas aja dipake (toh saya juga ngikutin NGL wkwk-- tapi kan buat belajar hehe:D). Selamat ngoprek dan semoga project ini bermanfaat!
