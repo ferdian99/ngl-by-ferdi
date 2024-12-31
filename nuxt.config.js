@@ -24,7 +24,7 @@ export default {
   ssr: false,
 
   router: {
-    base: "./",
+    base: "/",
   },
 
   css: ["@/assets/css/tailwind.css"],
