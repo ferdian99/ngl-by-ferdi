@@ -1,17 +1,17 @@
 <template>
   <!-- Screen -->
   <div
-    class="min-h-screen bg-gradient-to-br from-pink-600 via-orange-500 to-yellow-500 flex flex-col justify-center items-center p-4 text-white"
+    class="min-h-screen bg-gradient-to-br from-pink-600 via-orange-500 to-yellow-500 flex flex-col justify-center items-center p-8 text-white"
   >
     <!-- Container -->
     <div
-      class="w-full max-w-[400px] lg:max-w-[600px] flex flex-col gap-y-3 justify-center items-center"
+      class="w-full md:max-w-[600px] flex flex-col gap-y-3 justify-center items-center"
     >
       <!-- Card -->
-      <div class="w-full rounded-3xl overflow-hidden">
+      <div class="w-full rounded-[32px] overflow-hidden">
         <!-- Header / Profile -->
         <div class="flex flex-row gap-3 p-4 items-center bg-white">
-          <img src="/img/profile.png" class="rounded-full w-12 h-12" />
+          <img src="profile.png" class="rounded-full w-12 h-12" />
           <div class="flex flex-col items-start">
             <h1 class="text-sm lg:text-base font-medium text-gray-900">
               @haloferdi
@@ -23,16 +23,16 @@
         </div>
 
         <!-- Form container -->
-        <div class="relative bg-white/50 w-full p-4">
+        <div class="relative bg-white/50 w-full p-6">
           <textarea
             v-model="message"
-            placeholder="send me anonymous message"
-            class="w-full h-24 bg-transparent placeholder:text-black/50 text-black text-base lg:text-xl font-semibold focus:outline-none"
+            placeholder="send me anonymous messages..."
+            class="w-full h-24 bg-transparent placeholder:text-black/50 text-black text-xl font-semibold focus:outline-none"
           ></textarea>
 
           <!-- Dice randomizer -->
           <button
-            class="absolute bottom-3 right-3 bg-white/30 text-black rounded-full px-2 py-1 font-bold"
+            class="absolute bottom-5 right-5 bg-white/30 text-black rounded-full px-2 py-2 font-bold"
             @click="handleDice"
           >
             🎲
@@ -40,30 +40,30 @@
         </div>
       </div>
 
-      <p class="text-xs lg:text-sm text-center">
+      <p class="text-sm text-center">
         🔒 anonymous q&a • by @haloferdi
       </p>
 
       <button
         @click="handleSubmit"
         :disabled="isLoading"
-        class="w-full bg-black text-white py-2 rounded-full hover:bg-gray-900 transition-colors text-sm lg:text-base font-semibold disabled:bg-gray-700 disabled:cursor-not-allowed"
+        class="mt-1 w-full bg-black text-white p-4 rounded-full hover:bg-gray-900 transition-colors text-lg font-semibold disabled:bg-gray-700 disabled:cursor-not-allowed"
       >
         {{ isLoading ? 'Loading...' : 'Send!' }}
       </button>
 
-      <p class="text-xs lg:text-sm font-bold mt-10">
+      <p class="text-base text-center font-bold mt-28">
         👇 {{ currentCount }} people just tapped the button 👇
       </p>
 
       <button
-        class="w-full bg-white text-black text-sm lg:text-base font-semibold px-4 py-2 rounded-full bouncy-btn"
+        class="w-full bg-white text-black text-lg font-semibold p-4 rounded-full bouncy-btn"
         @click="redirectToHome"
       >
         Get your own messages! (Clone)
       </button>
 
-      <div class="flex gap-3 text-xs lg:text-sm text-white/60">
+      <div class="flex gap-2 text-sm text-white/60">
         <a>Term</a>
         <a>Privacy</a>
       </div>
