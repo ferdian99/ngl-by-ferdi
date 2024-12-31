@@ -48,20 +48,20 @@ Intinya, di sini kita bisa bikin form tanya-jawab anonim, kayak NGL beneran.
 ## Info Struktur Folder
 
 .
-├─ pages/
-│   └─ index.vue          # Halaman utama Nuxt, cuma manggil <NGL />
-├─ components/
-│   ├─ NGL.vue            # Komponen induk, nge-switch antara Form & Success
-│   ├─ NGLForm.vue        # Komponen form anonim + dadu + submit
-│   └─ NGLSuccess.vue     # Komponen "Sent!" + counter + tombol balik
-├─ assets/
-│   └─ css/
-│       └─ tailwind.css   # File CSS utama (Tailwind, font, dsb.)
-├─ static/
-│   └─ img/
-│       └─ profile.png    # Gambar profil contoh
-├─ nuxt.config.js
-└─ ...
+- pages/
+  - index.vue          # Halaman utama Nuxt, cuma manggil <NGL />
+- components/
+  - NGL.vue            # Komponen induk, nge-switch antara Form & Success
+  - NGLForm.vue        # Komponen form anonim + dadu + submit
+  - NGLSuccess.vue     # Komponen "Sent!" + counter + tombol balik
+- assets/
+  - css/
+    - tailwind.css     # File CSS utama (Tailwind, font, dsb.)
+- static/
+  - img/
+    - profile.png      # Gambar profil contoh
+- nuxt.config.js
+- ...
 
 ---
 
