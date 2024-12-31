@@ -1,7 +1,7 @@
 <template>
   <!-- Screen -->
   <div
-    class="min-h-screen bg-gradient-to-br from-pink-600 via-orange-500 to-yellow-500 flex flex-col justify-center items-center p-8 text-white"
+    class="min-h-screen bg-gradient-to-br from-pink-600 via-orange-500 to-yellow-500 flex flex-col justify-center items-center p-6 text-white"
   >
     <!-- Container -->
     <div
@@ -23,16 +23,16 @@
         </div>
 
         <!-- Form container -->
-        <div class="relative bg-white/50 w-full p-6">
+        <div class="relative bg-white/50 w-full px-6 py-5">
           <textarea
             v-model="message"
             placeholder="send me anonymous messages..."
-            class="w-full h-24 bg-transparent placeholder:text-black/50 text-black text-xl font-semibold focus:outline-none"
+            class="w-full h-24 bg-transparent placeholder:text-black/30 text-black text-xl font-semibold focus:outline-none"
           ></textarea>
 
           <!-- Dice randomizer -->
           <button
-            class="absolute bottom-5 right-5 bg-white/30 text-black rounded-full px-2 py-2 font-bold"
+            class="absolute bottom-4 right-4 bg-white/30 text-black rounded-full px-2 py-2 font-bold"
             @click="handleDice"
           >
             🎲
