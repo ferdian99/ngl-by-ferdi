@@ -47,7 +47,6 @@ Intinya, di sini kita bisa bikin form tanya-jawab anonim, kayak NGL beneran.
 
 ## Info Struktur Folder
 
-.
 - pages/
   - index.vue          # Halaman utama Nuxt, cuma manggil <NGL />
 - components/
